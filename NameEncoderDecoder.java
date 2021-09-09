@@ -1,0 +1,31 @@
+class NameEncoderDecoder {
+    public String encode(String name) {
+        return "NOTFORYOU" +
+          name
+          .replace("e", "1")
+          .replace("u", "2")
+          .replace("i", "3")
+          .replace("o", "4")
+          .replace("a", "5")
+          + "YESNOTFORYOU";
+    }
+  
+    public String decode(String name) {
+        return name
+          .replace("1", "e")
+          .replace("2", "u")
+          .replace("3", "i")
+          .replace("4", "o")
+          .replace("5", "a")
+          .replace("YESNOTFORYOU", "")
+          .replace("NOTFORYOU", "");
+    }
+  
+    public static void main(String[] args) {
+        NameEncoderDecoder code = new NameEncoderDecoder();
+        String name = "Crab";
+        System.out.println("name = " + name);
+        System.out.println("encodeName = " + code.encode(name));
+        System.out.println("decodeName = " + code.decode(code.encode(name)));
+    }
+}
